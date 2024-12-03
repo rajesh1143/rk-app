@@ -1,14 +1,22 @@
-import { useState } from "react";
 import "@mantine/core/styles.css";
 import "./App.css";
-import { MantineProvider, Text } from "@mantine/core";
+import { AppShell, Burger, MantineProvider, Text } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [opened, { toggle }] = useDisclosure();
   return (
     <MantineProvider>
       <Text bg="gray">My App</Text>
+      <AppShell header={{ height: 60 }} navbar={{ width: 300 }} p="md">
+        <AppShell.Header>
+          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+          <div>Logo</div>
+        </AppShell.Header>
+        <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
+
+        <AppShell.Main>Main</AppShell.Main>
+      </AppShell>
     </MantineProvider>
   );
 }

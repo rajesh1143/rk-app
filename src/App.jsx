@@ -8,7 +8,7 @@ function App() {
 
   return (
     <MantineProvider>
-      <Text c={red}>My App</Text>
+      <Text c={blue}>My App</Text>
     </MantineProvider>
   );
 }

@@ -12,9 +12,11 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import ImageLayout from "./ImageApp";
 import NavMenu from "./NavMenu";
+import { useState } from "react";
 
 const AppLayout = () => {
   const [opened, { toggle }] = useDisclosure();
+  const [searchVal, setSearchVal] = useState("");
   return (
     <AppShell header={{ height: 60 }} navbar={{ width: 300 }} p="md">
       <AppShell.Header>
@@ -41,9 +43,12 @@ const AppLayout = () => {
               size="md"
               w="50%"
               mt={20}
+              value={searchVal}
+              onChange={(e) => setSearchVal(e.target.value)}
             />
           </Flex>
-          <ImageLayout />
+          {/* <Text>Category:{searchVal}</Text> */}
+          <ImageLayout category={searchVal} />
         </Stack>
       </AppShell.Main>
     </AppShell>

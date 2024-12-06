@@ -1,21 +1,28 @@
 import "@mantine/core/styles.css";
 import "./App.css";
-import {
-  AppShell,
-  Burger,
-  MantineProvider,
-  Skeleton,
-  Text,
-} from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import AppLayout from "./components/AppLayout";
+import { Box, MantineProvider } from "@mantine/core";
+import NavBar from "./components/NavBar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ContactusPage from "./pages/ContactusPage";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
-    <MantineProvider theme="dark">
-      <Text bg="gray">My App</Text>
-        <AppLayout/>
-    </MantineProvider>
+    <BrowserRouter basename="/rk-app">
+      <MantineProvider theme="dark">
+        <Box>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contactus" element={<ContactusPage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </Box>
+      </MantineProvider>
+    </BrowserRouter>
   );
 }
 

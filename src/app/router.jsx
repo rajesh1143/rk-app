@@ -1,34 +1,33 @@
 import {
-  createHashRouter,
+  createBrowserRouter,
   Link,
   Outlet,
   RouterProvider,
 } from 'react-router-dom';
 
-const appRouter = createHashRouter([
+const appRouter = createBrowserRouter([
   {
-    path: '/',
+    path: '/rk-app/',
     element: (
       <>
-        <Link to="/">Home</Link>
-
-        <Link to="/about">About</Link>
-        <Link to="/contactus">Contact Us</Link>
+        <Link to="/rk-app/">Home</Link>
+        <Link to="/rk-app/about">About</Link>
+        <Link to="/rk-app/contactus">Contact Us</Link>
         <br />
         <Outlet />
       </>
     ),
     children: [
       {
-        path: '/',
+        path: '/rk-app/',
         element: 'Home',
       },
       {
-        path: '/about',
+        path: '/rk-app/about',
         element: 'About',
       },
       {
-        path: '/contactus',
+        path: '/rk-app/contactus',
         element: 'contact Us',
       },
     ],

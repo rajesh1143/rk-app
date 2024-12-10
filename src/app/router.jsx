@@ -1,35 +1,41 @@
-import { createHashRouter, Link, Outlet, RouterProvider } from "react-router-dom";
+import {
+  createHashRouter,
+  Link,
+  Outlet,
+  RouterProvider,
+} from 'react-router-dom';
 
 const appRouter = createHashRouter([
   {
-    path: "/",
+    path: '/',
     element: (
       <>
         <Link to="/">Home</Link>
+
         <Link to="/about">About</Link>
         <Link to="/contactus">Contact Us</Link>
-        <br/>
-        <Outlet/>
+        <br />
+        <Outlet />
       </>
     ),
-    children:[
-        {
-            path:"/",
-            element:"Home"
-        },
-        {
-            path:"/about",
-            element:"About"
-        },
-        {
-            path:"/contactus",
-            element:"contact Us"
-        }
+    children: [
+      {
+        path: '/',
+        element: 'Home',
+      },
+      {
+        path: '/about',
+        element: 'About',
+      },
+      {
+        path: '/contactus',
+        element: 'contact Us',
+      },
     ],
-    errorElement:"404: PageNotFound"
+    errorElement: '404: PageNotFound',
   },
 ]);
 
 export const AppRouter = () => {
-    return <RouterProvider router={appRouter}/>
-}
+  return <RouterProvider router={appRouter} />;
+};
